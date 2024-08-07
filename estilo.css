@@ -24,7 +24,3 @@ footer {
   color: #DCDCDC;
   text-shadow: 5px 5px 3px #66CDAA;
 }
-```
-
-**Alterações feitas:**
-1. Adicionada a vírgula e a família de fontes de fallback (`sans-serif`) após `'Gupter'` em `font-family`.
