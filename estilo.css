@@ -1,26 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&display=swap');
-body{
+
+body {
   background-color: #4682B4;
-  font-family:'Gupter',
-  text-align:center;
+  font-family: 'Gupter', sans-serif;
+  text-align: center;
   font-size: 200%;
 }
-header{
+
+header {
   color: #000000;
   text-shadow: 5px 5px 30px #40E0D0;
 }
-section{ 
+
+section {
   background-color: #DCDCDC;
   width: 300px;
-  margin:auto;
+  margin: auto;
   border-radius: 30px;
   box-shadow: 5px 5px 5px #66CDAA;
 }
-footer{
+
+footer {
   color: #DCDCDC;
   text-shadow: 5px 5px 3px #66CDAA;
 }
+```
 
-
-
-
+**Alterações feitas:**
+1. Adicionada a vírgula e a família de fontes de fallback (`sans-serif`) após `'Gupter'` em `font-family`.
