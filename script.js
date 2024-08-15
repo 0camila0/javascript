@@ -1,6 +1,6 @@
 funciton carregar(){ 
 var msg = window.document.getElementById('msg')
-  var img = aindow.document.get.ElementById('imagem')
+  var img = window.document.getElementById('imagem')
   var data = New Date() //pega a hora da data atual
   var hora= data.getHours()//pega a hora da data atual
       msg.InnerHTML = `Agora são ${hora} horas.`
