@@ -1,26 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade JavaScript</title>
-    <link rel="stylesheet" href="estilo.css">
+    <title>Verificar Dia da Semana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
 </head>
-<body onload="carregar()">
-    <header>
-        <h1>Manhã, Tarde e Noite!</h1>
-    </header>
-    <section>
-        <div id="msg">
-            Aqui vai aparecer uma mensagem!!!
-        </div>
-        <div id="foto">
-            <img id="imagem" src="manhã.jpg" alt="imagem do dia">
-        </div>
-    </section>
-    <footer>
-        <p>&copy; Atividade Javascript</p>
-    </footer>
-    <script src="script.js"></script>
+<body>
+    <div class="container">
+        <h1>Verifique se é um dia útil ou fim de semana</h1>
+        <form id="dayForm">
+            <label for="day">Digite o dia da semana:</label>
+            <input type="text" id="day" name="day" placeholder="segunda, terça, etc." required>
+            <button type="submit">Verificar</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        document.getElementById('dayForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const dayInput = document.getElementById('day').value.toLowerCase();
+            const result = document.getElementById('result');
+            
+            // Lista de dias úteis e fim de semana
+            const weekdays = ['segunda', 'terça', 'quarta', 'quinta', 'sexta'];
+            const weekends = ['sábado', 'domingo'];
+
+            if (weekdays.includes(dayInput)) {
+                result.textContent = `${dayInput.charAt(0).toUpperCase() + dayInput.slice(1)}-feira é um dia útil.`;
+            } else if (weekends.includes(dayInput)) {
+                result.textContent = `${dayInput.charAt(0).toUpperCase() + dayInput.slice(1)}-feira é um fim de semana.`;
+            } else {
+                result.textContent = 'Por favor, insira um dia da semana válido.';
+            }
+        });
+    </script>
 </body>
 </html>
