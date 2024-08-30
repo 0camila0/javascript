@@ -1,15 +1,14 @@
-function carregar() {
-    var msg = window.document.getElementById('msg');
-    var img = window.document.getElementById('imagem');
-    var data = new Date();
-    var hora = data.getHours();
-    msg.innerHTML = ` Agora são ${hora} horas.`;
+function verificarDia() {
+    var dia = document.getElementById('dia').value.toLowerCase().trim();
+    var respostaDia = document.getElementById('respostaDia');
+    var diasUteis = ["segunda", "terça", "terca", "quarta", "quinta", "sexta"];
+    var fimDeSemana = ["sábado", "sabado", "domingo"];
 
-    if (hora >= 0 && hora < 12) {
-        img.src = 'manhã.jpg';
-    } else if (hora >= 12 && hora < 18) {
-        img.src = 'Tarde.jpg';
+    if (diasUteis.includes(dia)) {
+        respostaDia.innerHTML = "É dia útil.";
+    } else if (fimDeSemana.includes(dia)) {
+        respostaDia.innerHTML = "É fim de semana.";
     } else {
-        img.src = 'Noite.jpg';
+        respostaDia.innerHTML = "Dia inválido. Por favor, insira um dia da semana válido.";
     }
 }
