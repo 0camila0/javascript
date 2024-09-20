@@ -1,26 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade JavaScript</title>
-    <link rel="stylesheet" href="estilo.css">
+    <title>Exemplo de Loop</title>
 </head>
-<body onload="carregar()">
-    <header>
-        <h1>Maikley Dieferson do Senhor</h1>
-    </header>
-    <section>
-        <div id="diaSemana">
-            <label for="dia"> Digite o dia da semana:</label>
-            <input type="text" id="dia">
-            <button onclick="verificarDia()">Verificar</button>
-        </div>
-        <div id="respostaDia" style="margin-top: 20px; font-size: 20px;"></div>
-    </section>
-    <footer>
-        <p>&copy; Atividade Javascript</p>
-    </footer>
-    <script src="script.js"></script>
+<body>
+
+    <h1>Exibindo Números</h1>
+    <div id="Pa"></div>
+
+    <script>
+        var c = 1;
+        var pa = document.getElementById("Pa");
+
+        while (c <= 6) {
+            pa.innerHTML += c + " cor<br>";
+            c++;
+        }
+    </script>
+
 </body>
 </html>
