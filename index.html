@@ -1,24 +1,67 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo de Loop</title>
+    <title>Projetos em JavaScript</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #output { margin-top: 20px; }
+    </style>
 </head>
 <body>
-
-    <h1>Exibindo Números</h1>
-    <div id="Pa"></div>
+    <h1>Contador Regressivo</h1>
+    <button onclick="contadorRegressivo(10)">Começar Contagem</button>
+    
+    <h1>Tabuada</h1>
+    <input type="number" id="tabuadaNum" placeholder="Número">
+    <button onclick="tabuada()">Gerar Tabuada</button>
+    
+    <h1>Adivinhe o Número</h1>
+    <button onclick="adivinharNumero()">Adivinhar Número</button>
+    
+    <div id="output"></div>
 
     <script>
-        var c = 1;
-        var pa = document.getElementById("Pa");
+        function contadorRegressivo(inicio) {
+            let output = document.getElementById('output');
+            output.innerHTML = '';
+            while (inicio >= 0) {
+                output.innerHTML += inicio + '<br>';
+                inicio--;
+            }
+        }
 
-        while (c <= 6) {
-            pa.innerHTML += c + " cor<br>";
-            c++;
+        function tabuada() {
+            const num = document.getElementById('tabuadaNum').value;
+            let output = document.getElementById('output');
+            output.innerHTML = '';
+            let i = 1;
+            while (i <= 10) {
+                output.innerHTML += `${num} x ${i} = ${num * i}<br>`;
+                i++;
+            }
+        }
+
+        function adivinharNumero() {
+            const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+            let palpite;
+            let tentativas = 0;
+            let output = document.getElementById('output');
+            output.innerHTML = 'Tente adivinhar o número entre 1 e 100:<br>';
+            
+            while (palpite !== numeroAleatorio) {
+                palpite = parseInt(prompt('Digite seu palpite:'));
+                tentativas++;
+                if (palpite < numeroAleatorio) {
+                    output.innerHTML += 'Muito baixo! Tente novamente.<br>';
+                } else if (palpite > numeroAleatorio) {
+                    output.innerHTML += 'Muito alto! Tente novamente.<br>';
+                } else {
+                    output.innerHTML += `Parabéns! Você adivinhou o número ${numeroAleatorio} em ${tentativas} tentativas.`;
+                }
+            }
         }
     </script>
-
 </body>
 </html>
