@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <title>Contagem regressiva, Tabuadas e Adivinhe o Número</title>
+<head>
+    <title>Contagem Regressiva, Tabuadas e Adivinhe o Número</title>
     <meta charset="utf-8">
-    <script src="script.js"></script>
     <link rel="stylesheet" href="estilo.css">
-  </head>
-  <body>
-       
-      <div class="contagem"></div>
-      <h1>Contagem regressiva</h1>
-      <p>Selecione um número para iniciar a contagem regressiv:a</p>
-      <input type="text" id="numeroRegressiva">
-      <button onclick="contarRegressiva()">Enviar</button>
-      <p id="resultadoRegressiva"></p>
-      <br>
-      
-      <div class="tabuada"></div>
-      <h1>Tabuada</h1>
-      <p>Selecione um númerode 1 a 10 para gerar a tabuada:</p>
-      <input type="text" id="numeroTabuada">
-      <button onclick="calcularTabuada()">Enviar</button>
-      <p id="resultadoTabuada"></p>
-      <br>
-      
-      <div class="advinhar"></div>
-      <h1>Jogo: Adivinhe o número</h1>
-      <p>Adivinhe o número que eu tenho em mente, de 1 a 10:</p>
-      <input type="text" id="numeroJogo">
-      <button onclick="adivinharNumero()">Enviar</button>
-      <button onclick="gerarNovoNumero()">Gerar um novo numero</button>
-      <p id="resultadoJogo"></p>
-      <br>
+    <script src="script.js" defer></script> <!-- O defer garante que o script carregue após o HTML -->
+</head>
+<body>
+    <div class="contagem">
+        <h1>Contagem Regressiva</h1>
+        <p>Selecione um número para iniciar a contagem regressiva:</p>
+        <input type="text" id="numeroRegressiva">
+        <button onclick="contarRegressiva()">Enviar</button>
+        <p id="resultadoRegressiva"></p>
+    </div>
     
-  </body>
+    <div class="tabuada">
+        <h1>Tabuada</h1>
+        <p>Selecione um número de 1 a 10 para gerar a tabuada:</p>
+        <input type="text" id="numeroTabuada">
+        <button onclick="calcularTabuada()">Enviar</button>
+        <p id="resultadoTabuada"></p>
+    </div>
+    
+    <div class="adivinhar">
+        <h1>Jogo: Adivinhe o Número</h1>
+        <p>Adivinhe o número que eu tenho em mente, de 1 a 10:</p>
+        <input type="text" id="numeroJogo">
+        <button onclick="adivinharNumero()">Enviar</button>
+        <button onclick="gerarNovoNumero()">Gerar um novo número</button>
+        <p id="resultadoJogo"></p>
+    </div>
+</body>
 </html>
