@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&family=Play:wght@400;700&display=swap');
+
 body {
-    background-color: #90ad86;
+    background-image: url('Noite.jpg'); /* Substitua pela URL da sua imagem */
+    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
     font-size: 16pt;
     text-align: center;
     font-family: 'Octavio Pardo';
@@ -14,6 +16,16 @@ header {
 .section {
     margin-bottom: 2px;
     padding: 10px; 
-    background-color: #586553; 
+    background-color: rgba(88, 101, 83, 0.8); /* Adicione opacidade para ver a imagem de fundo */
 }
+
+input {
+    width: 300px; /* Aumenta a largura do input */
+    padding: 10px; /* Aumenta o padding do input */
+    font-size: 16pt; /* Ajusta o tamanho da fonte */
+}
+
+button {
+    padding: 10px 20px; /* Aumenta o tamanho do botão */
+    font-size: 16pt; /* Ajusta o tamanho da fonte do botão */
 }
