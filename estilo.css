@@ -4,25 +4,7 @@ body {
   background-color: #4682B4;
   font-family: 'Gupter', sans-serif;
   text-align: center;
-  font-size: 200%;
-}
-
-header {
-  color: #000000;
-  text-shadow: 5px 5px 30px #40E0D0;
-}
-
-section {
-  background-color: #DCDCDC;
-  width: 300px;
-  margin: auto;
-  border-radius: 30px;
-  box-shadow: 5px 5px 5px #66CDAA;
-}
-
-footer {
-  color: #DCDCDC;
-  text-shadow: 5px 5px 3px #66CDAA;
+  font-size: 300%;
 }
   
 body.background {
@@ -33,10 +15,11 @@ body.background {
     height: 100vh; 
     margin: 0; 
 }
+
 input-grande {
-    width: 500px; 
+    width: 609px; 
     height: 60px;
-    font-size: 16px; 
-    padding: 5px; 
-    margin-bottom: 10px; 
+    font-size: 20px; 
+    padding: 7px; 
+    margin-bottom: 20px; 
 }
