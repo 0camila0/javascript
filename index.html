@@ -1,84 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <title>Atividade 3 pontos</title>
     <meta charset="utf-8">
+    <script src="script.js"></script>
     <link rel="stylesheet" href="estilo.css">
-</head>
-<body>
-    <div class="contagem"></div>
-    <h1>Contagem regressiva</h1>
-    <p>Digite um número para começar a contagem regressiva</p>
-    <input type="text" id="numeroRegressiva">
-    <button onclick="contarRegressiva()">Enviar</button>
-    <p id="resultadoRegressiva"></p>
-    <br>
-
-    <div class="tabuada"></div>
-    <h1>Tabuada</h1>
-    <p>Digite um número de 1 a 10, para mostrar a tabuada</p>
-    <input type="text" id="numeroTabuada">
-    <button onclick="calcularTabuada()">Enviar</button>
-    <p id="resultadoTabuada"></p>
-    <br>
-
-    <div class="advinhar"></div>
-    <h1>Jogo: Adivinhe o número</h1>
-    <p>Tente adivinhar o número secreto de 1 a 10</p>
-    <input type="text" id="numeroJogo">
-    <button onclick="adivinharNumero()">Enviar</button>
-    <button onclick="gerarNovoNumero()">Gerar um novo numero</button>
-    <p id="resultadoJogo"></p>
-    <br>
-
-    <script>
-        //regressiva
-        function contarRegressiva() {
-            let numero = parseInt(document.getElementById("numeroRegressiva").value);
-            let resultado = "";
-            for (let i = numero; i >= 0; i--) {
-                resultado += i + " ";
-            }
-            document.getElementById("resultadoRegressiva").innerHTML = resultado;
-        }
-
-        //tabuada
-        function calcularTabuada() {
-            let numero = parseInt(document.getElementById("numeroTabuada").value);
-            let resultado = "";
-            if (numero >= 1 && numero <= 10) {
-                for (let i = 1; i <= 10; i++) {
-                    resultado += `${numero} x ${i} = ${numero * i}<br>`;
-                }
-            } else {
-                resultado = "Digite um número de 1 a 10!";
-            }
-            document.getElementById("resultadoTabuada").innerHTML = resultado;
-        }
-
-        //adivinhar
-        let numeroSecreto = Math.floor(Math.random() * 10) + 1;
-
-        function adivinharNumero() {
-            let tentativa = parseInt(document.getElementById("numeroJogo").value);
-            let resultado = "";
-            if (isNaN(tentativa)) {
-                resultado = "Por favor, digite um número válido!";
-            } else if (tentativa === numeroSecreto) {
-                resultado = "Parabéns! Você acertou!";
-            } else if (tentativa > numeroSecreto) {
-                resultado = `Tente novamente! O número secreto é menor que ${tentativa}.`;
-            } else {
-                resultado = `Tente novamente! O número secreto é maior que ${tentativa}.`;
-            }
-            document.getElementById("resultadoJogo").innerHTML = resultado;
-        }
-
-        function gerarNovoNumero() {
-            numeroSecreto = Math.floor(Math.random() * 10) + 1;
-            document.getElementById("resultadoJogo").innerHTML = "Novo número gerado. Tente adivinhar";
-            document.getElementById("numeroJogo").value = "";
-        }
-    </script>
-</body>
+  </head>
+  <body>
+       
+      <div class="contagem"></div>
+      <h1>Contagem regressiva</h1>
+      <p>Digite um número para começar a contagem regressiva</p>
+      <input type="text" id="numeroRegressiva">
+      <button onclick="contarRegressiva()">Enviar</button>
+      <p id="resultadoRegressiva"></p>
+      <br>
+      
+      <div class="tabuada"></div>
+      <h1>Tabuada</h1>
+      <p>Digite um número de 1 a 10, para mostrar a tabuada</p>
+      <input type="text" id="numeroTabuada">
+      <button onclick="calcularTabuada()">Enviar</button>
+      <p id="resultadoTabuada"></p>
+      <br>
+      
+      <div class="advinhar"></div>
+      <h1>Jogo: Adivinhe o número</h1>
+      <p>Tente adivinhar o número secreto de 1 a 10</p>
+      <input type="text" id="numeroJogo">
+      <button onclick="adivinharNumero()">Enviar</button>
+      <button onclick="gerarNovoNumero()">Gerar um novo numero</button>
+      <p id="resultadoJogo"></p>
+      <br>
+    
+  </body>
 </html>
