@@ -1,88 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador Regressivo, Tabuada, Adivinhe o Número</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 20px; 
-            background-image: url('Noite.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            color: white; /* Para melhorar a legibilidade */
-        }
-        #output { margin-top: 20px; }
-    </style>
+    <title>Atividade 3 pontos</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <h1>Contador Regressivo</h1>
-    <button onclick="contadorRegressivo(10)">Começar Contagem</button>
-    
+    <div class="contagem"></div>
+    <h1>Contagem regressiva</h1>
+    <p>Digite um número para começar a contagem regressiva</p>
+    <input type="text" id="numeroRegressiva">
+    <button onclick="contarRegressiva()">Enviar</button>
+    <p id="resultadoRegressiva"></p>
+    <br>
+
+    <div class="tabuada"></div>
     <h1>Tabuada</h1>
-    <input type="number" id="tabuadaNum" placeholder="Número">
-    <button onclick="tabuada()">Gerar Tabuada</button>
-    
-    <h1>Adivinhe o Número</h1>
-    <button onclick="adivinharNumero()">Adivinhar Número</button>
-    
-    <div id="output"></div>
+    <p>Digite um número de 1 a 10, para mostrar a tabuada</p>
+    <input type="text" id="numeroTabuada">
+    <button onclick="calcularTabuada()">Enviar</button>
+    <p id="resultadoTabuada"></p>
+    <br>
+
+    <div class="advinhar"></div>
+    <h1>Jogo: Adivinhe o número</h1>
+    <p>Tente adivinhar o número secreto de 1 a 10</p>
+    <input type="text" id="numeroJogo">
+    <button onclick="adivinharNumero()">Enviar</button>
+    <button onclick="gerarNovoNumero()">Gerar um novo numero</button>
+    <p id="resultadoJogo"></p>
+    <br>
 
     <script>
-        function contadorRegressivo(inicio) {
-            let output = document.getElementById('output');
-            output.innerHTML = '';
-            while (inicio >= 0) {
-                output.innerHTML += inicio + '<br>';
-                inicio--;
+        //regressiva
+        function contarRegressiva() {
+            let numero = parseInt(document.getElementById("numeroRegressiva").value);
+            let resultado = "";
+            for (let i = numero; i >= 0; i--) {
+                resultado += i + " ";
             }
+            document.getElementById("resultadoRegressiva").innerHTML = resultado;
         }
 
-        function tabuada() {
-            const num = document.getElementById('tabuadaNum').value;
-            let output = document.getElementById('output');
-            output.innerHTML = '';
-            let i = 1;
-            while (i <= 10) {
-                output.innerHTML += `${num} x ${i} = ${num * i}<br>`;
-                i++;
+        //tabuada
+        function calcularTabuada() {
+            let numero = parseInt(document.getElementById("numeroTabuada").value);
+            let resultado = "";
+            if (numero >= 1 && numero <= 10) {
+                for (let i = 1; i <= 10; i++) {
+                    resultado += `${numero} x ${i} = ${numero * i}<br>`;
+                }
+            } else {
+                resultado = "Digite um número de 1 a 10!";
             }
+            document.getElementById("resultadoTabuada").innerHTML = resultado;
         }
+
+        //adivinhar
+        let numeroSecreto = Math.floor(Math.random() * 10) + 1;
 
         function adivinharNumero() {
-            const numeroAleatorio = Math.floor(Math.random() * 10) + 1;
-            let palpite;
-            let tentativas = 0;
-            let output = document.getElementById('output');
-            output.innerHTML = 'Tente adivinhar o número entre 1 e 10:<br>';
-            
-            while (true) {
-                palpite = prompt('Digite seu palpite:');
-                
-                if (palpite === null) {
-                    output.innerHTML += 'Jogo cancelado.<br>';
-                    return; // Sai do jogo se o usuário cancelar
-                }
-                
-                palpite = parseInt(palpite, 10);
-                tentativas++;
-
-                if (isNaN(palpite)) {
-                    output.innerHTML += 'Por favor, digite um número válido.<br>';
-                    tentativas--; // Não conta a tentativa se não for um número
-                    continue;
-                }
-
-                if (palpite < numeroAleatorio) {
-                    output.innerHTML += 'Muito baixo! Tente um número maior.<br>';
-                } else if (palpite > numeroAleatorio) {
-                    output.innerHTML += 'Muito alto! Tente um número menor.<br>';
-                } else {
-                    output.innerHTML += `Parabéns! Você adivinhou o número ${numeroAleatorio} em ${tentativas} tentativas.`;
-                    break; // Sai do loop ao adivinhar corretamente
-                }
+            let tentativa = parseInt(document.getElementById("numeroJogo").value);
+            let resultado = "";
+            if (isNaN(tentativa)) {
+                resultado = "Por favor, digite um número válido!";
+            } else if (tentativa === numeroSecreto) {
+                resultado = "Parabéns! Você acertou!";
+            } else if (tentativa > numeroSecreto) {
+                resultado = `Tente novamente! O número secreto é menor que ${tentativa}.`;
+            } else {
+                resultado = `Tente novamente! O número secreto é maior que ${tentativa}.`;
             }
+            document.getElementById("resultadoJogo").innerHTML = resultado;
+        }
+
+        function gerarNovoNumero() {
+            numeroSecreto = Math.floor(Math.random() * 10) + 1;
+            document.getElementById("resultadoJogo").innerHTML = "Novo número gerado. Tente adivinhar";
+            document.getElementById("numeroJogo").value = "";
         }
     </script>
 </body>
