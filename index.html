@@ -1,11 +1,18 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos em JavaScript</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background-image: url('Noite.jpeg'); 
+            background-size: cover; 
+            background-position: center; 
+            color: white; /* Para melhorar a legibilidade */
+        }
         #output { margin-top: 20px; }
     </style>
 </head>
@@ -44,21 +51,36 @@
         }
 
         function adivinharNumero() {
-            numerosecreto=Math.floor(Math.random() *10)+1;
+            const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
             let palpite;
             let tentativas = 0;
             let output = document.getElementById('output');
             output.innerHTML = 'Tente adivinhar o número entre 1 e 100:<br>';
             
-            while (palpite !== numeroAleatorio) {
-                palpite = parseInt(prompt('Digite seu palpite:'));
+            while (true) {
+                palpite = prompt('Digite seu palpite:');
+                
+                if (palpite === null) {
+                    output.innerHTML += 'Jogo cancelado.<br>';
+                    return; // Sai do jogo se o usuário cancelar
+                }
+                
+                palpite = parseInt(palpite, 10);
                 tentativas++;
+
+                if (isNaN(palpite)) {
+                    output.innerHTML += 'Por favor, digite um número válido.<br>';
+                    tentativas--; // Não conta a tentativa se não for um número
+                    continue;
+                }
+
                 if (palpite < numeroAleatorio) {
-                    output.innerHTML += 'Muito baixo! Tente novamente.<br>';
+                    output.innerHTML += 'Muito baixo! Tente um número maior.<br>';
                 } else if (palpite > numeroAleatorio) {
-                    output.innerHTML += 'Muito alto! Tente novamente.<br>';
+                    output.innerHTML += 'Muito alto! Tente um número menor.<br>';
                 } else {
                     output.innerHTML += `Parabéns! Você adivinhou o número ${numeroAleatorio} em ${tentativas} tentativas.`;
+                    break; // Sai do loop ao adivinhar corretamente
                 }
             }
         }
