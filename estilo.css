@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
-    background-image: url('URL_DA_SUA_IMAGEM'); /* Substitua pela URL da sua imagem */
+    background-image: url('Tarde.jpg'); /* Substitua pela URL da sua imagem */
     background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
     background-repeat: no-repeat; /* Impede que a imagem se repita */
     background-position: center; /* Centraliza a imagem no fundo */
