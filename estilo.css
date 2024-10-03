@@ -31,3 +31,12 @@ footer {
   color: #DCDCDC;
   text-shadow: 5px 5px 3px #66CDAA;
 }
+  
+body.background {
+    background-image: url('Noite.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    margin: 0; 
+}
