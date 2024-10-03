@@ -44,4 +44,4 @@ function gerarNovoNumero() {
   numeroSecreto = Math.floor(Math.random() * 10) + 1;
   document.getElementById("resultadoJogo").innerHTML = "Novo número gerado. Tente adivinhar";
   document.getElementById("numeroJogo").value = ""; 
-    }
+}
