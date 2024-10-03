@@ -40,3 +40,10 @@ body.background {
     height: 100vh; 
     margin: 0; 
 }
+input-grande {
+    width: 300px; 
+    height: 40px;
+    font-size: 16px; 
+    padding: 5px; 
+    margin-bottom: 10px; 
+}
