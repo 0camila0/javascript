@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
-    background-image: url('Noite.jpg'); /* Substitua pela URL da sua imagem */
+    background-image: url('URL_DA_SUA_IMAGEM'); /* Substitua pela URL da sua imagem */
     background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    background-position: center; /* Centraliza a imagem no fundo */
     font-size: 16pt;
     text-align: center;
-    font-family: 'Octavio Pardo';
+    font-family: 'Roboto', sans-serif; /* Muda a fonte para Roboto */
+    margin: 0; /* Remove margens padrão do body */
 }
 
 header {
@@ -14,18 +17,30 @@ header {
 }
 
 .section {
-    margin-bottom: 2px;
-    padding: 10px; 
-    background-color: rgba(88, 101, 83, 0.8); /* Adicione opacidade para ver a imagem de fundo */
+    margin: 20px; /* Adiciona margem ao redor da seção */
+    padding: 20px; 
+    background-color: rgba(88, 101, 83, 0.8); /* Adiciona opacidade */
+    border-radius: 10px; /* Bordas arredondadas para a seção */
 }
 
 input {
     width: 300px; /* Aumenta a largura do input */
     padding: 10px; /* Aumenta o padding do input */
     font-size: 16pt; /* Ajusta o tamanho da fonte */
+    border: 2px solid #fff; /* Adiciona uma borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 10px; /* Espaçamento entre o input e o botão */
 }
 
 button {
     padding: 10px 20px; /* Aumenta o tamanho do botão */
     font-size: 16pt; /* Ajusta o tamanho da fonte do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #4CAF50; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
 }
+
+button:hover {
+    background-color: #45a049; /* Cor do botão ao passar o mouse⬤
