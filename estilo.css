@@ -37,7 +37,7 @@ button {
     font-size: 16pt; /* Ajusta o tamanho da fonte do botão */
     border: none; /* Remove a borda padrão */
     border-radius: 5px; /* Bordas arredondadas */
-    background-color: #4CAF50; /* Cor de fundo do botão */
+    background-color: #00BFFF; /* Cor de fundo do botão */
     color: white; /* Cor do texto do botão */
     cursor: pointer; /* Muda o cursor ao passar o mouse */
 }
