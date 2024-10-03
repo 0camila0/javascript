@@ -1,1 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&family=Play:wght@400;700&display=swap');
+body {
+    background-color: #90ad86;
+    font-size: 16pt;
+    text-align: center;
+    font-family: 'Octavio Pardo';
+}
 
+header {
+    color: white;
+    text-shadow: 2px 2px 3px #dffed4;
+}
+
+.section {
+    margin-bottom: 2px;
+    padding: 10px; 
+    background-color: #586553; 
+}
+}
