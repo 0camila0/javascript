@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sequência de Fibonacci</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .resultado {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sequência de Fibonacci</h1>
+    <div class="resultado" id="resultado"></div>
+
     <script>
         function fibonacci() {
-            let fib = [-1, 1]; // Iniciando com -1 e 1
+            let fib = [-1, 1]; 
 
-            // Gerar os próximos 8 números da sequência
             for (let i = 2; i < 10; i++) {
                 fib[i] = fib[i - 1] + fib[i - 2];
             }
 
-            // Exibir a sequência
-            alert("Os 10 primeiros números da sequência de Fibonacci são: " + fib.join(", "));
+            document.getElementById('resultado').innerText = "Os 10 primeiros números da sequência de Fibonacci são: " + fib.join(", ");
         }
+
+        window.onload = fibonacci;
     </script>
-</head>
-<body onload="fibonacci()">
-    <h1>Sequência de Fibonacci</h1>
 </body>
 </html>
