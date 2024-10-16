@@ -1,35 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <title>Contagem Regressiva, Tabuadas e Adivinhe o Número</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="estilo.css">
-    <script src="script.js" defer></script> <!-- O defer garante que o script carregue após o HTML -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Ímpares de 1 a 20</title>
+    <link rel="stylesheet" href="estilo.css" />
 </head>
 <body>
-    <div class="contagem">
-        <h1>Contagem Regressiva</h1>
-        <p>Selecione um número para iniciar a contagem regressiva:</p>
-        <input type="text" id="numeroRegressiva">
-        <button onclick="contarRegressiva()">Enviar</button>
-        <p id="resultadoRegressiva"></p>
-    </div>
+    <h1>Números Ímpares de 1 a 20</h1>
     
-    <div class="tabuada">
-        <h1>Tabuada</h1>
-        <p>Selecione um número de 1 a 10 para gerar a tabuada:</p>
-        <input type="text" id="numeroTabuada">
-        <button onclick="calcularTabuada()">Enviar</button>
-        <p id="resultadoTabuada"></p>
-    </div>
+    <div id="numerosImpares"></div>
     
-    <div class="adivinhar">
-        <h1>Adivinhe o Número</h1>
-        <p>Adivinhe o número que eu tenho em mente, de 1 a 10:</p>
-        <input type="text" id="numeroJogo">
-        <button onclick="adivinharNumero()">Enviar</button>
-        <button onclick="gerarNovoNumero()">Gerar um novo número</button>
-        <p id="resultadoJogo"></p>
-    </div>
+    <h2>Verifique se um número é ímpar</h2>
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button onclick="calcular()">Enviar</button>
+    <button onclick="limpar()">Limpar</button>
+    <div id="resultado"></div>
+
+    <script>
+        const numerosImparesDiv = document.getElementById("numerosImpares");
+        let numerosImpares = '';
+
+        for (let i = 1; i <= 20; i++) {
+            if (i % 2 !== 0) {
+                numerosImpares += i + "<br>";
+            }
+        }
+
+        numerosImparesDiv.innerHTML = "<h3>Números ímpares de 1 a 20:</h3>" + numerosImpares;
+
+        function calcular() {
+            const numero = parseInt(document.getElementById("numero").value);
+            const resultadoDiv = document.getElementById("resultado");
+         
+            if (isNaN(numero)) {
+                resultadoDiv.innerHTML = "Por favor, insira um número.";
+            } else if (numero < 1 || numero > 20) {
+                resultadoDiv.innerHTML = "O número deve estar entre 1 e 20.";
+            } else if (numero % 2 !== 0) {
+                resultadoDiv.innerHTML = "O número " + numero + " é ímpar.";
+            } else {
+                resultadoDiv.innerHTML = "O número " + numero + " não é ímpar.";
+            }
+        }
+
+        function limpar() {
+            document.getElementById("numero").value = '';
+            document.getElementById("resultado").innerHTML = '';
+        }
+    </script>
 </body>
 </html>
