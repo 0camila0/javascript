@@ -4,50 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Números Ímpares de 1 a 20</title>
-    <link rel="stylesheet" href="estilo.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
     <h1>Números Ímpares de 1 a 20</h1>
-    
-    <div id="numerosImpares"></div>
-    
-    <h2>Verifique se um número é ímpar</h2>
-    <input type="number" id="numero" placeholder="Digite um número">
-    <button onclick="calcular()">Enviar</button>
-    <button onclick="limpar()">Limpar</button>
     <div id="resultado"></div>
 
     <script>
-        const numerosImparesDiv = document.getElementById("numerosImpares");
-        let numerosImpares = '';
+        const resultadoDiv = document.getElementById("resultado");
+        let resultado = '';
 
         for (let i = 1; i <= 20; i++) {
             if (i % 2 !== 0) {
-                numerosImpares += i + "<br>";
+                resultado += i + "<br>";
             }
         }
 
-        numerosImparesDiv.innerHTML = "<h3>Números ímpares de 1 a 20:</h3>" + numerosImpares;
-
-        function calcular() {
-            const numero = parseInt(document.getElementById("numero").value);
-            const resultadoDiv = document.getElementById("resultado");
-         
-            if (isNaN(numero)) {
-                resultadoDiv.innerHTML = "Por favor, insira um número.";
-            } else if (numero < 1 || numero > 20) {
-                resultadoDiv.innerHTML = "O número deve estar entre 1 e 20.";
-            } else if (numero % 2 !== 0) {
-                resultadoDiv.innerHTML = "O número " + numero + " é ímpar.";
-            } else {
-                resultadoDiv.innerHTML = "O número " + numero + " não é ímpar.";
-            }
-        }
-
-        function limpar() {
-            document.getElementById("numero").value = '';
-            document.getElementById("resultado").innerHTML = '';
-        }
+        resultadoDiv.innerHTML = resultado;
     </script>
 </body>
 </html>
