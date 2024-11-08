@@ -1,35 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sequência de Fibonacci</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .resultado {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
+    <title>Atividade</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <h1>Sequência de Fibonacci</h1>
-    <div class="resultado" id="resultado"></div>
+    <h1>Contagem Regressiva</h1>
+    <p>Digite um número para a contagem regressiva:</p>
+    <input type="text" id="numeroRegressiva">
+    <button onclick="iniciarContagemRegressiva()">Enviar</button>
+    <p id="resultadoRegressiva"></p>
+    <br>
+
+    <h1>Tabuada</h1>
+    <p>Digite um número de 1 a 10:</p>
+    <input type="text" id="numeroTabuada">
+    <button onclick="mostrarTabuada()">Enviar</button>
+    <p id="resultadoTabuada"></p>
+    <br>
+
+    <h1>Adivinhe o Número</h1>
+    <p>Digite um número de 1 a 10 para adivinhar:</p>
+    <input type="text" id="numeroJogo">
+    <button onclick="adivinhar()">Enviar</button>
+    <button onclick="gerarNovoNumero()">Novo Número</button>
+    <p id="resultadoJogo"></p>
+    <br>
 
     <script>
-        function fibonacci() {
-            let fib = [-1, 1];
-
-            for (let i = 2; i < 10; i++) {
-                fib[i] = fib[i - 1] + fib[i - 2];
+        // Função para iniciar a contagem regressiva
+        function iniciarContagemRegressiva() {
+            let numero = parseInt(document.getElementById("numeroRegressiva").value);
+            let resultado = [];
+            if (!isNaN(numero)) {
+                for (let i = numero; i >= 0; i--) {
+                    resultado.push(i);
+                }
+                document.getElementById("resultadoRegressiva").innerHTML = resultado.join(" ");
+            } else {
+                document.getElementById("resultadoRegressiva").innerHTML = "Por favor, insira um número válido!";
             }
-
-            document.getElementById('resultado').innerText = "Os 10 primeiros números da sequência de Fibonacci são: " + fib.join(", ");
         }
 
-        window.onload = fibonacci;
+        // Função para mostrar a tabuada
+        function mostrarTabuada() {
+            let numero = parseInt(document.getElementById("numeroTabuada").value);
+            let resultado = "";
+            if (numero >= 1 && numero <= 10) {
+                for (let i = 1; i <= 10; i++) {
+                    resultado += `${numero} x ${i} = ${numero * i}<br>`;
+                }
+            } else {
+                resultado = "Insira um número entre 1 e 10!";
+            }
+            document.getElementById("resultadoTabuada").innerHTML = resultado;
+        }
+
+        // Função para gerar número aleatório
+        function gerarNumeroAleatorio() {
+            return Math.floor(Math.random() * 10) + 1;
+        }
+
+        let numeroSecreto = gerarNumeroAleatorio();
+
+        // Função para adivinhar o número
+        function adivinhar() {
+            let tentativa = parseInt(document.getElementById("numeroJogo").value);
+            let resultado = "";
+            if (isNaN(tentativa)) {
+                resultado = "Por favor, insira um número válido!";
+            } else if (tentativa === numeroSecreto) {
+                resultado = "Parabéns! Você acertou!";
+            } else if (tentativa > numeroSecreto) {
+                resultado = `Tente novamente! O número secreto é menor que ${tentativa}.`;
+            } else {
+                resultado = `Tente novamente! O número secreto é maior que ${tentativa}.`;
+            }
+            document.getElementById("resultadoJogo").innerHTML = resultado;
+            document.getElementById("numeroJogo").value = "";  // Limpa o campo de entrada após cada tentativa
+        }
+
+        // Função para gerar um novo número
+        function gerarNovoNumero() {
+            numeroSecreto = gerarNumeroAleatorio();
+            document.getElementById("resultadoJogo").innerHTML = "Novo número gerado. Tente adivinhar.";
+            document.getElementById("numeroJogo").value = "";  // Limpa o campo de entrada ao gerar novo número
+        }
     </script>
 </body>
 </html>
